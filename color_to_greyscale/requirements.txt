@@ -1,0 +1,5 @@
+# GDAL's Python bindings and numpy come from the base image
+# (ghcr.io/osgeo/gdal:ubuntu-small-3.13.3) -- do not pip install them here,
+# reinstalling numpy can break the ABI the bindings were compiled against.
+papermill==2.6.0
+ipykernel==6.29.5
