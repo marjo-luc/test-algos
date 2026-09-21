@@ -27,7 +27,7 @@ jobs:
           algorithm-configuration-path: color_to_greyscale/algorithm_config.yml
           dockerfile-path: color_to_greyscale/Containerfile
           cwl-workflow-dir: color_to_greyscale/cwl_workflows
-          deploy-app-pack: true
+          deploy-app-pack: false   # flip to true once the GHCR package is public
           app-pack-register-endpoint: https://api.uat.maap-project.org/api/ogc/processes
         env:
           # MAAP token is required to deploy the process
