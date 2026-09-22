@@ -1,0 +1,11 @@
+# Python script entrypoint.
+# COPY paths are relative to the REPO ROOT -- the Action builds with context: .
+FROM python:3.12-slim
+
+# No requirements.txt: write_string.py is standard library only.
+COPY ./write_string/write_string.py /usr/local/bin/write_string.py
+
+RUN chmod +x /usr/local/bin/write_string.py
+
+# run_command: write_string.py
+# No CMD/ENTRYPOINT on purpose -- CWL supplies baseCommand plus the bound --flag args.

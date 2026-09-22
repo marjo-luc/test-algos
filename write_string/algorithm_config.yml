@@ -1,0 +1,46 @@
+# Input params for the OGC application package generator.
+# Every field below lands somewhere specific in the generated CWL --
+# see references/algorithm-config.md for the full mapping.
+#
+# Regenerate after editing:
+#   ~/.claude/skills/ogc-app-pack/scripts/generate_cwl.py \
+#       --config-file write_string/algorithm_config.yml \
+#       --cwl-workflow-dir write_string/cwl_workflows
+# Never hand-edit the generated CWL -- the next push overwrites it.
+
+# --- Identity (OGC req-9: id, label, abstract) ---
+algorithm_description: Writes a user-supplied string verbatim to a UTF-8 text file in the output directory.
+algorithm_name: write-string
+algorithm_version: main
+keywords: ogc, text, utility, example
+
+# --- Provenance ---
+code_repository: https://github.com/marjo-luc/test-algos.git
+citation: https://github.com/marjo-luc/test-algos.git
+author: Marjorie Lucas
+contributor: Marjorie Lucas
+license: https://raw.githubusercontent.com/marjo-luc/test-algos/refs/heads/main/LICENSE
+release_notes: None
+
+# --- Execution ---
+run_command: write_string.py
+ram_min: 512      # mebibytes -- the Python interpreter itself peaks near 40; the rest is headroom
+cores_min: 1
+outdir_max: 128   # mebibytes -- one text file, as long as the --text passed in
+
+# --- Inputs: each becomes `--<name> <value>` on the command line ---
+inputs:
+  - name: text
+    doc: String to write. Stored verbatim as UTF-8, with no trailing newline added.
+    label: Text
+    type: string
+  - name: output_file
+    doc: Name of the text file, written inside the output directory. Does not change where results are collected from.
+    label: Output filename
+    type: string?
+    default: output.txt
+
+# --- Output: exactly one, always a Directory globbed from ./output* ---
+outputs:
+  - name: out
+    type: Directory

@@ -1,0 +1,6 @@
+# Sample CWL job file: cwltool <cwl> input.yml
+#
+# Primitives are plain scalars. File and Directory would need a `class` plus a
+# `path` or `location`; this algorithm takes neither.
+text: Hello from the write-string OGC application package.
+output_file: output.txt
