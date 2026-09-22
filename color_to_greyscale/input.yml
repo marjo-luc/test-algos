@@ -1,0 +1,8 @@
+# Sample CWL job file: cwltool <cwl> input.yml
+#
+# input_image is a File, so it needs a `class` plus a `path`; the path is
+# resolved relative to this file. Primitives are plain scalars.
+input_image:
+  class: File
+  path: sample_rgb.png
+output_file: greyscale.png

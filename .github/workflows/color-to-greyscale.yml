@@ -1,0 +1,34 @@
+# On push, builds the image, generates + validates the CWL, commits it back,
+# and registers the process with MAAP.
+name: color-to-greyscale
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'color_to_greyscale/**'
+      - '.github/workflows/color-to-greyscale.yml'
+
+jobs:
+  generate_app_pack:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write     # the Action commits the generated CWL back to the branch
+      packages: write     # the Action pushes the image to GHCR
+
+    steps:
+      - name: Checkout repo content
+        uses: actions/checkout@v6
+
+      - name: Use OGC App Pack Generator Action
+        uses: MAAP-Project/ogc-app-pack-generator@1.1.0
+        with:
+          algorithm-configuration-path: color_to_greyscale/algorithm_config.yml
+          dockerfile-path: color_to_greyscale/Containerfile
+          cwl-workflow-dir: color_to_greyscale/cwl_workflows
+          deploy-app-pack: true   # registers on every push -- upsert, overwrites the live UAT process
+          app-pack-register-endpoint: https://api.uat.maap-project.org/api/ogc/processes
+        env:
+          # MAAP token is required to deploy the process
+          MAAP_TOKEN: ${{ secrets.MAAP_TOKEN }}
