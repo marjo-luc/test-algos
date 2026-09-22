@@ -10,7 +10,7 @@
 
 # --- Identity (OGC req-9: id, label, abstract) ---
 algorithm_description: Converts a color image to an 8-bit greyscale image using the ITU-R BT.601 luma weights (L = 0.299R + 0.587G + 0.114B). Reads any format Pillow supports; the output format follows the extension of the output filename.
-algorithm_name: color-to-greyscale
+algorithm_name: to_greyscale
 algorithm_version: main
 keywords: ogc, image-processing, greyscale, pillow
 
