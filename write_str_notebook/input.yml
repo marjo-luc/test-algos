@@ -1,0 +1,3 @@
+# Sample CWL job file: cwltool <cwl> input.yml
+text: hello from cwltool
+output_path: output.txt

@@ -1,13 +1,13 @@
 # On push, builds the image, generates + validates the CWL, commits it back,
-# and registers the process with MAAP.
-name: color-to-greyscale
+# and registers the process with MAAP UAT.
+name: write-str-notebook
 on:
   push:
     branches:
       - main
     paths:
-      - 'color_to_greyscale/**'
-      - '.github/workflows/color-to-greyscale.yml'
+      - 'write_str_notebook/**'
+      - '.github/workflows/write-str-notebook.yml'
 
 jobs:
   generate_app_pack:
@@ -24,10 +24,10 @@ jobs:
       - name: Use OGC App Pack Generator Action
         uses: MAAP-Project/ogc-app-pack-generator@1.1.0
         with:
-          algorithm-configuration-path: color_to_greyscale/algorithm_config.yml
-          dockerfile-path: color_to_greyscale/Containerfile
-          cwl-workflow-dir: color_to_greyscale/cwl_workflows
-          deploy-app-pack: true   # registers on every push -- upsert, overwrites the live UAT process
+          algorithm-configuration-path: write_str_notebook/algorithm_config.yml
+          dockerfile-path: write_str_notebook/Containerfile
+          cwl-workflow-dir: write_str_notebook/cwl_workflows
+          deploy-app-pack: true
           app-pack-register-endpoint: https://api.uat.maap-project.org/api/ogc/processes
         env:
           # MAAP token is required to deploy the process
