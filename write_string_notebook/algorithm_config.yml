@@ -1,0 +1,40 @@
+# Input params for the OGC application package generator.
+# Every field below lands somewhere specific in the generated CWL --
+# see the ogc-app-pack skill's references/algorithm-config.md for the full mapping.
+
+# --- Identity (OGC req-9: id, label, abstract) ---
+algorithm_description: Writes a given text string to an output file.
+algorithm_name: write-string-notebook
+algorithm_version: main
+keywords: ogc, notebook, papermill
+
+# --- Provenance ---
+code_repository: https://github.com/marjo-luc/test-algos.git
+citation: https://github.com/marjo-luc/test-algos.git
+author: Marjorie Lucas
+contributor: Marjorie Lucas
+license: https://raw.githubusercontent.com/marjo-luc/test-algos/refs/heads/main/LICENSE
+release_notes: None
+
+# --- Execution ---
+run_command: run.py
+ram_min: 512                          # mebibytes
+cores_min: 1
+outdir_max: 50                        # mebibytes
+
+# --- Inputs: each becomes `--<name> <value>` on the command line ---
+inputs:
+  - name: text
+    doc: The text string to write to the output file.
+    label: Text
+    type: string
+  - name: output_path
+    doc: "Name of the output file, written inside output/ (default: output.txt)."
+    label: Output filename
+    type: string?
+    default: output.txt
+
+# --- Output: exactly one, always a Directory globbed from ./output* ---
+outputs:
+  - name: out
+    type: Directory
