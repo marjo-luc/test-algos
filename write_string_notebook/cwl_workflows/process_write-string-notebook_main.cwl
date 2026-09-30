@@ -15,7 +15,7 @@ $graph:
       type: string?
       default: output.txt
   outputs:
-    data_out:
+    out:
       type: Directory
       outputSource: process/outputs_result
   steps:
@@ -63,7 +63,7 @@ s:contributor:
   s:name: Marjorie Lucas
 s:citation: https://github.com/marjo-luc/test-algos.git
 s:codeRepository: https://github.com/marjo-luc/test-algos.git
-s:commitHash: cca75461d09544c8c39373d63d390b1b962eb10b
+s:commitHash: 9dc9f3fcbbcfe37fc72bd981311878fd789b0031
 s:dateCreated: 2026-09-30
 s:license: https://raw.githubusercontent.com/marjo-luc/test-algos/refs/heads/main/LICENSE
 s:softwareVersion: 1.0.0
