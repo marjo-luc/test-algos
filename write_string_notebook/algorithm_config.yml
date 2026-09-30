@@ -36,5 +36,5 @@ inputs:
 
 # --- Output: exactly one, always a Directory globbed from ./output* ---
 outputs:
-  - name: out
+  - name: data_out
     type: Directory
