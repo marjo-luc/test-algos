@@ -1,0 +1,8 @@
+# Sample CWL job file: cwltool <cwl> input.yml
+# test_data/ is a tiny synthetic catalog standing in for MAAP's stage-in.
+input_catalog:
+  class: Directory
+  path: test_data/input
+asset_name: B04
+bbox: "-122.50 37.72 -122.40 37.80"
+output_file: clipped.tif

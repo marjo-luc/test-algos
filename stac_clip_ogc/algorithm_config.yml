@@ -1,0 +1,47 @@
+# Input params for the OGC application package generator.
+# Every field below lands somewhere specific in the generated CWL.
+
+# --- Identity ---
+algorithm_description: Clips one raster asset from a staged STAC Catalog to a bounding box and returns the result as a Cloud-Optimized GeoTIFF in a new STAC Catalog.
+algorithm_name: stac-clip-ogc
+algorithm_version: main               # keep equal to the branch the Action watches
+keywords: ogc, stac, raster, clip, cog
+
+# --- Provenance ---
+code_repository: https://github.com/marjo-luc/test-algos.git
+citation: https://github.com/marjo-luc/test-algos.git
+author: Marjorie Lucas
+contributor: Marjorie Lucas
+license: https://raw.githubusercontent.com/marjo-luc/test-algos/refs/heads/main/LICENSE
+release_notes: None
+
+# --- Execution ---
+run_command: run.py                   # on PATH in the image via /usr/local/bin
+ram_min: 4096                         # mebibytes
+cores_min: 1
+outdir_max: 2048                      # mebibytes
+
+# --- Inputs: each becomes `--<name> <value>` on the command line ---
+inputs:
+  - name: input_catalog
+    doc: Staged STAC Catalog directory containing a catalog.json and at least one Item
+    label: Input STAC Catalog
+    type: Directory
+  - name: asset_name
+    doc: Key of the raster asset in the STAC Item to clip, e.g. B04
+    label: Asset name
+    type: string
+  - name: bbox
+    doc: Clip bounding box as 'MINX MINY MAXX MAXY' (min lon, min lat, max lon, max lat), space-separated, in EPSG:4326
+    label: Bounding box
+    type: string
+  - name: output_file
+    doc: Name of the clipped Cloud-Optimized GeoTIFF (written inside the output directory)
+    label: Output filename
+    type: string?
+    default: clipped.tif
+
+# --- Output: exactly one Directory; name must start with "out" ---
+outputs:
+  - name: out
+    type: Directory

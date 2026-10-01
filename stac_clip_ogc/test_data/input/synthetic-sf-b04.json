@@ -1,0 +1,63 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [],
+  "id": "synthetic-sf-b04",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -122.55,
+          37.7
+        ],
+        [
+          -122.35,
+          37.7
+        ],
+        [
+          -122.35,
+          37.85
+        ],
+        [
+          -122.55,
+          37.85
+        ],
+        [
+          -122.55,
+          37.7
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -122.55,
+    37.7,
+    -122.35,
+    37.85
+  ],
+  "properties": {
+    "datetime": "2024-06-01T00:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "./catalog.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "B04": {
+      "href": "./B04.tif",
+      "type": "image/tiff; application=geotiff",
+      "roles": [
+        "data"
+      ]
+    }
+  }
+}

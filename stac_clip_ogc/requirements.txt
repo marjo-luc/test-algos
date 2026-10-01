@@ -1,0 +1,5 @@
+papermill
+ipykernel
+pystac
+rasterio
+rio-stac
