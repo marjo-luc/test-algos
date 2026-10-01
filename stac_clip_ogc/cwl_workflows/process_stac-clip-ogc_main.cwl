@@ -87,7 +87,7 @@ s:contributor:
   s:name: Marjorie Lucas
 s:citation: https://github.com/marjo-luc/test-algos.git
 s:codeRepository: https://github.com/marjo-luc/test-algos.git
-s:commitHash: 1beee9f096f6386cfc5cf87cd6b34e60fb4051ef
+s:commitHash: 8d5db2e1815214c7de00241f49cd79ba2d3b0df7
 s:dateCreated: 2026-10-01
 s:license: https://raw.githubusercontent.com/marjo-luc/test-algos/refs/heads/main/LICENSE
 s:softwareVersion: 1.0.0
